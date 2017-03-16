@@ -1,14 +1,18 @@
+"""This module is used to open csv files containing stock prices (from https://www.google.com/finance)"""
 import csv
+"""This module is used to reshape data from csv to be plotted properly"""
 import numpy as np
+"""This module is used to make a simple neural network"""
 from sklearn.svm import SVR
+"""This module is used to visualize and plot data"""
 import matplotlib.pyplot as plt
 
 
-# INTERPOLATION
-dates = []
-prices = []
-predictedprices = []
-predicteddates = []
+
+dates = [] # Array to hold dates [X - February 28]
+prices = [] # Array to hold stock open prices
+predictedprices = [] # Array to hold prices predicted from RBF 
+predicteddates = [] # Array to hold dates following February 28th
 
 
 
@@ -23,7 +27,7 @@ def get_data(filename):
         #         break
         #     dates.append(int(row[0].split('-')[0]))
         #     prices.append(float(row[1]))
-        num = 10
+        num = 100
         for row in csvFileReader:
             dates.append(num)
             prices.append(float(row[1]))
@@ -33,6 +37,9 @@ def get_data(filename):
 
     return
 
+
+def adjust_prices(dates,prices, predicteddates, predictedprices, x):
+    return
 
 def predict_prices(dates, prices, x):
     dates = np.reshape(dates, (len(dates),1))
@@ -86,11 +93,11 @@ def predict_prices(dates, prices, x):
 
     return svr_lin.predict(x)[0]
 
-# get_data('aapl.csv')
+get_data('aapl.csv')
 # get_data('wdc.csv')
-get_data('gpro.csv')
+# get_data('gpro.csv')
 
 
 
-predict_prices(dates,prices,11)
+predict_prices(dates,prices,101)
 

@@ -1,0 +1,16 @@
+http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
+SGD classifier
+Data: http://pythonprogramming.net/static/downloads/machine-learning-data/intraQuarter.zip
+PATH MUST BE CHANGED
+
+pt4
+1. Parse data
+Debt to equity to see if any insight. See if good ratio. Ratio of total debt to total equity
+Low = good
+If only look at debt to equity, not good. Tech usually has high debt
+
+data is parsed to classify data to 0 or 1 buy or sell
+
+Quandl API Key:TB2zKEZnvusnkPS-7t9b
+
+To see if data is good, must have a baseline to compare to : S&P 500

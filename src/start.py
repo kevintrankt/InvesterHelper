@@ -15,29 +15,22 @@ predictedprices = [] # Array to hold prices predicted from RBF
 predicteddates = [] # Array to hold dates following February 28th
 
 
-
+"""Opens stock data from finance.google.com csv file. Dates end at Feburary 28th"""
 def get_data(filename):
-    print filename
     with open(filename, 'r') as csvfile:
         csvFileReader = csv.reader(csvfile)
         next(csvFileReader)
-
-        # for row in csvFileReader:
-        #     if int(row[0].split('-')[0]) > 28:
-        #         break
-        #     dates.append(int(row[0].split('-')[0]))
-        #     prices.append(float(row[1]))
         num = 100
         for row in csvFileReader:
             dates.append(num)
             prices.append(float(row[1]))
-            num=num-1
+            num = num-1
             if num == 0:
                 break
 
     return
 
-
+"""Adjust predicted prices based off of 'x', factor of good/bad. -5<x<5, 5 being great press, -5 being bad press"""
 def adjust_prices(dates,prices, predicteddates, predictedprices, x):
     return
 
@@ -47,9 +40,6 @@ def predict_prices(dates, prices, x):
     svr_lin = SVR(kernel= 'rbf',C=1e3,gamma=.1)
 
     svr_lin.fit(dates,prices)
-
-    plt.scatter(dates,prices, color = 'black', label = 'Data')
-    plt.plot(dates,svr_lin.predict(dates),color = 'green', label = 'Linear Model')
 
     predictedprices.append(svr_lin.predict(x)[0])
     predictedprices.append(svr_lin.predict(x+1)[0])
@@ -68,6 +58,11 @@ def predict_prices(dates, prices, x):
     predicteddates.append(x+5)
     predicteddates.append(x+6)
     predicteddates.append(x+7)
+
+    plt.scatter(dates,prices, color = 'black', label = 'Data')
+    plt.plot(dates,svr_lin.predict(dates),color = 'green', label = 'Linear Model')
+
+
 
     print 'March 1:',svr_lin.predict(x)[0]
     print 'March 2:',svr_lin.predict(x+1)[0]
@@ -93,9 +88,9 @@ def predict_prices(dates, prices, x):
 
     return svr_lin.predict(x)[0]
 
-get_data('aapl.csv')
+# get_data('aapl.csv')
 # get_data('wdc.csv')
-# get_data('gpro.csv')
+get_data('gpro.csv')
 
 
 

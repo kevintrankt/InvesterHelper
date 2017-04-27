@@ -13,4 +13,7 @@ data is parsed to classify data to 0 or 1 buy or sell
 
 Quandl API Key:TB2zKEZnvusnkPS-7t9b
 
-To see if data is good, must have a baseline to compare to : S&P 500
+To see if data is good, must have a baseline to compare to : S&P 500 (The market, DOW), gets data from 2000 until present
+Many features will be a 0 or 1
+
+Get percent change of price from first issue. Compare by subtract. Subtract stockp - sp500 if pos, good buy if neg bad buy. pos = out performs market

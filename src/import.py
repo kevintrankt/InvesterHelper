@@ -15,7 +15,41 @@ import re
 path = "/Users/kevin/Documents/intraQuarter"
 
 
-def Key_Stats(gather="Total Debt/Equity (mrq)"):
+def Key_Stats(gather=["Total Debt/Equity",
+                      'Trailing P/E',
+                      'Price/Sales',
+                      'Price/Book',
+                      'Profit Margin',
+                      'Operating Margin',
+                      'Return on Assets',
+                      'Return on Equity',
+                      'Revenue Per Share',
+                      'Market Cap',
+                        'Enterprise Value',
+                        'Forward P/E',
+                        'PEG Ratio',
+                        'Enterprise Value/Revenue',
+                        'Enterprise Value/EBITDA',
+                        'Revenue',
+                        'Gross Profit',
+                        'EBITDA',
+                        'Net Income Avl to Common ',
+                        'Diluted EPS',
+                        'Earnings Growth',
+                        'Revenue Growth',
+                        'Total Cash',
+                        'Total Cash Per Share',
+                        'Total Debt',
+                        'Current Ratio',
+                        'Book Value Per Share',
+                        'Cash Flow',
+                        'Beta',
+                        'Held by Insiders',
+                        'Held by Institutions',
+                        'Shares Short (as of',
+                        'Short Ratio',
+                        'Short % of Float',
+                        'Shares Short (prior ']):
     statspath = path + '/_KeyStats'
     # Holds folder for each stock folder
     stock_list = [x[0] for x in os.walk(statspath)]

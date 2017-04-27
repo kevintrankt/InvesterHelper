@@ -7,4 +7,4 @@ plt.style.use('ggplot')
 x = []
 y = []
 
-[[]]
+#clf = classifier

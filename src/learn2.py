@@ -63,7 +63,7 @@ def Build_Data_Set():
 
 def Analysis():
 
-    test_size = 1500
+    test_size = 2900
     X, y = Build_Data_Set()
     
 
